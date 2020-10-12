@@ -11,7 +11,6 @@ const store = () => new Vuex.Store({
 
   state: {
     cityList: [],
-    currentCourseId: 1,
     filters: {
       areaFilters: false,
       priceFilters: false
