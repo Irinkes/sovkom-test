@@ -9,8 +9,8 @@
       <span @click="activateSearchByText" :class="[searchCheck ? 'disable' : '']">Искать по названию</span>
     </div>
     <div class="search-controllers__options" v-show="showControllers">
-      <span class="search-controllers__options__price" @click="activatePriceFilters" :class="{ disable: !priceFilters }">Цена</span>
-      <span class="search-controllers__options__meters" @click="activateAreaFilters" :class="{ disable: !areaFilters }">Метраж</span>
+      <span class="search-controllers__options__price" @click="activatePriceFilters" :class="{ disable: !priceFiltersIcon }">Цена</span>
+      <span class="search-controllers__options__meters" @click="activateAreaFilters" :class="{ disable: !areaFiltersIcon }">Метраж</span>
     </div>
   </div>
 </template>
@@ -22,8 +22,10 @@ export default {
     return {
       searchCheck: true,
       showControllers: false,
-      areaFilters: true,
-      priceFilters: false
+      areaFilters: false,
+      areaFiltersIcon: true,
+      priceFilters: false,
+      priceFiltersIcon: false
     }
   },
 
@@ -57,12 +59,16 @@ export default {
     },
     activateAreaFilters() {
       this.areaFilters = true;
+      this.areaFiltersIcon = false;
+      this.priceFiltersIcon = true;
       this.priceFilters = false;
       this.$store.commit('setAreaFilter', this.areaFilters);
       this.$store.commit('setPriceFilter', this.priceFilters);
     },
     activatePriceFilters() {
       this.priceFilters = true;
+      this.areaFiltersIcon = true;
+      this.priceFiltersIcon = false;
       this.areaFilters = false;
       this.$store.commit('setPriceFilter', this.priceFilters);
       this.$store.commit('setAreaFilter', this.areaFilters);
