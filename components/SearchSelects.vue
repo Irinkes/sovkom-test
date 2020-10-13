@@ -1,18 +1,24 @@
 <template>
   <div class="search-selects">
-    <select name="city" id="" v-model="searchSelectCity" @change="saveSelect">
+    <div class="search-selects-wrapper">
+      <select name="city" id="" v-model="searchSelectCity" @change="saveSelect">
       <option :key="key" :value="value.city" v-for="(value, key) in this.$store.state.cityList">
         {{value.city}}
       </option>
     </select>
-    <select name="sell" id="" v-model="searchSelectSell" @change="saveSelect">
+    </div>
+    <div class="search-selects-wrapper">
+      <select name="sell" id="" v-model="searchSelectSell" @change="saveSelect">
       <option value="Купить" selected>Купить</option>
       <option value="Продать">Продать</option>
     </select>
-    <select name="building" id="" v-model="searchSelectBuilding" @change="saveSelect">
+    </div>
+    <div class="search-selects-wrapper">
+      <select name="building" id="" v-model="searchSelectBuilding" @change="saveSelect">
       <option value="Офис" selected>Офис</option>
       <option value="Не офис">Не офис</option>
     </select>
+    </div>
   </div>
 </template>
 
