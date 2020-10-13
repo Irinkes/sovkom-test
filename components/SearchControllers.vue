@@ -10,7 +10,7 @@
     </div>
     <div class="search-controllers__options" v-show="showControllers">
       <span class="search-controllers__options__price" @click="activatePriceFilters" :class="{ disable: !priceFilters }">Цена</span>
-      <span class="search-controllers__options__meters" @click="activateAreaFilters" :class="{ disable: !!areaFilters }">Метраж</span>
+      <span class="search-controllers__options__meters" @click="activateAreaFilters" :class="{ disable: !areaFilters }">Метраж</span>
     </div>
   </div>
 </template>
