@@ -49,8 +49,7 @@ export default {
       this.areaFilters = false;
       this.priceFilters = false;
       this.$emit('searchSwitch', this.searchCheck);
-      this.$store.commit('setAreaFilter', this.areaFilters);
-      this.$store.commit('setPriceFilter', this.priceFilters);
+      this.commitFilters(this.priceFilters, this.areaFilters);
     },
     activateMainSearch() {
       this.searchCheck = false;
@@ -62,16 +61,19 @@ export default {
       this.areaFiltersIcon = false;
       this.priceFiltersIcon = true;
       this.priceFilters = false;
-      this.$store.commit('setAreaFilter', this.areaFilters);
-      this.$store.commit('setPriceFilter', this.priceFilters);
+      this.commitFilters(this.priceFilters, this.areaFilters);
     },
     activatePriceFilters() {
       this.priceFilters = true;
       this.areaFiltersIcon = true;
       this.priceFiltersIcon = false;
       this.areaFilters = false;
-      this.$store.commit('setPriceFilter', this.priceFilters);
-      this.$store.commit('setAreaFilter', this.areaFilters);
+      this.commitFilters(this.priceFilters, this.areaFilters);
+    },
+
+    commitFilters (priceFilter, areaFilter) {
+      this.$store.commit('setPriceFilter', priceFilter);
+      this.$store.commit('setAreaFilter', areaFilter);
     }
   }
 }
