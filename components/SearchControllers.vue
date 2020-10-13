@@ -27,10 +27,6 @@ export default {
     }
   },
 
-  mounted() {
-    // this.$store.dispatch('loadCoursesList');
-  },
-
   methods: {
     check() {
       this.showControllers = !this.searchCheck;
@@ -64,20 +60,12 @@ export default {
       this.priceFilters = false;
       this.$store.commit('setAreaFilter', this.areaFilters);
       this.$store.commit('setPriceFilter', this.priceFilters);
-      // this.areaFilters = true;
-      // this.priceFilters = !this.areaFilters;
-      // this.$emit('showAreaFilters', this.areaFilters);
-      // this.$emit('showPriceFilters', this.priceFilters);
     },
     activatePriceFilters() {
       this.priceFilters = true;
       this.areaFilters = false;
       this.$store.commit('setPriceFilter', this.priceFilters);
       this.$store.commit('setAreaFilter', this.areaFilters);
-      // this.priceFilters = true;
-      // this.areaFilters = !this.priceFilters;
-      // this.$emit('showAreaFilters', this.areaFilters);
-      // this.$emit('showPriceFilters', this.priceFilters);
     }
   }
 }
