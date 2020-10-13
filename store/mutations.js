@@ -1,5 +1,4 @@
 export  const  setPriceFilter = (state, result) => {
-  console.log(result);
   state.filters.priceFilters = result;
 }
 
